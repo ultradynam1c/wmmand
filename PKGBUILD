@@ -3,7 +3,7 @@ pkgname=wmmand
 pkgver=1.3.2
 pkgrel=1
 pkgdesc="Mandelbrot set browser docapp for Window Maker"
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'aarch64')
 url="http://github.com/ciotog/wmMand"
 license=('GPL')
 depends=('libxpm')
@@ -18,7 +18,7 @@ prepare() {
 
 build() {
   cd $pkgname
-  make
+  make CFLAGS="-O2 -Wall -fcommon"
 }
 
 package() {
